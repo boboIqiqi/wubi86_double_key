@@ -1,0 +1,14 @@
+customization:
+  distribution_code_name: ""
+  distribution_version: ""
+  generator: "Rime::SwitcherSettings"
+  modified_time: "Tue May  3 21:28:43 2016"
+  rime_version: 1.2.9
+patch:
+  schema_list:
+    - {schema: wubi86}
+    - {schema: wubi86_double_key}
+  key_binder:
+    bindings:
+      - {accept: comma, send: 3, when: has_menu}
+      - {accept: period, send: 2, when: has_menu}
