@@ -81,7 +81,9 @@ punctuator:
   import_preset: default
 
 key_binder:
-  import_preset: default
+  bindings:
+    - {accept: comma, send: 2, when: has_menu}
+    - {accept: period, send: 3, when: has_menu}
 
 recognizer:
   import_preset: default

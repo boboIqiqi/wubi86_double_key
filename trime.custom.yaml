@@ -33,9 +33,9 @@ patch:
       #第四行
       - {click: Keyboard_symbols, width: 15}
       - {click: Keyboard_qwerty, long_click: Menu, width: 10}
-      - {click: "，", width: 10}
+      - {label: "，", click: comma , width: 10}
       - {label: " " , click: space, long_click: VOICE_ASSIST, width: 30} 
-      - {click: "。", width: 10}
+      - {label: "。", click: period , width: 10}
       - {label: "123", click: Keyboard_number, width: 10}
       - {label: "确定", click: Return, width: 15}
 
