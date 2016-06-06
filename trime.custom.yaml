@@ -1,0 +1,63 @@
+#trime.custom.yaml
+patch:
+#1、新建一個按鍵佈局wubi86_double_key
+  "preset_keyboards/wubi86_double_key":  #佈局ID
+    author: "boboIqiqi"   #作者
+    name: "五笔双键"  #方便自己辨識的名字
+    ascii_mode: 0 #默認進入中文狀態
+    height: 60   #每行高度
+    width: 20   #按鍵默認寬度（取所有按鍵中用得較多的寬度值，接下來就可以少寫一些width了）  
+    keys:   #按鍵排列
+      #第一行
+      - {label: "Q W", click: q, long_click: 1}
+      - {label: "E R", click: e, long_click: 2}
+      - {label: "T Y", click: t, long_click: 3}
+      - {label: "U I", click: u, long_click: 4}
+      - {label: "O P", click: o, long_click: 5}
+
+      #第二行
+      - {label: "A S", click: a, long_click: 6}
+      - {label: "D F", click: d, long_click: 7}
+      - {label: "G H", click: g, long_click: 8}
+      - {label: "J K", click: j, long_click: 9}
+      - {label: "L"  , click: l, long_click: 0}
+
+      #第三行
+      - {label: "词" , click: Shift_L, width: 10}
+      - {label: "Z"  , click: z, long_click: "@", width: 10}
+      - {label: "X C", click: x, long_click: "!"}
+      - {label: "V B", click: v, long_click: "?"}
+      - {label: "N M", click: n, long_click: "."}
+      - {click: BackSpace}
+
+      #第四行
+      - {click: Keyboard_symbols, width: 15}
+      - {click: Keyboard_qwerty, long_click: Menu, width: 10}
+      - {click: "，", width: 10}
+      - {label: " " , click: space, long_click: VOICE_ASSIST, width: 30} 
+      - {click: "。", width: 10}
+      - {label: "123", click: Keyboard_number, width: 10}
+      - {label: "确定", click: Return, width: 15}
+
+  "style/keyboards":
+    - .default
+    - default
+    - number
+    - symbols
+    - qwerty
+
+  "preset_keyboards/qwerty/ascii_mode": 1
+
+  "style/candidate_view_height": 36
+  "style/round_corner": 0.0
+  "style/label_text_size": 18
+  "style/comment_height": 14
+  "preset_keys/Keyboard_qwerty":   #
+      label: 英
+      select: qwerty
+      send: Eisu_toggle
+  "preset_keys/space":
+    functional: false
+    label: " "
+    repeatable: false  #关掉空格键重复
+    send: space

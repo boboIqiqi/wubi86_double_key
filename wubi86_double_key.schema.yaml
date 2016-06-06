@@ -1,0 +1,89 @@
+# Rime schema settings
+# vim: set sw=2 sts=2 et:
+# encoding: utf-8
+
+schema:
+  schema_id: wubi86_double_key
+  name: "五笔86双键版"
+  version: "0.12"
+  author:
+    - 發明人 王永民先生
+  description: |
+    五筆字型86版
+    碼表源自 ibus-table
+    請安裝【袖珍簡化字拼音】以啓用 z 鍵拼音反查
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中文, 西文 ]
+  - name: full_shape
+    states: [ 半角, 全角 ]
+  - name: extended_charset
+    states: [ 通用, 增廣 ]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - reverse_lookup_translator
+#    - table_translator
+    - script_translator
+
+speller:
+  delimiter: " ;'"
+  max_code_length: 4
+  algebra:
+    - derive/w/q/
+    - derive/r/e/ 
+    - derive/y/t/ 
+    - derive/i/u/ 
+    - derive/p/o/ 
+
+    - derive/s/a/ 
+    - derive/f/d/ 
+    - derive/h/g/ 
+    - derive/k/j/ 
+    
+    - derive/c/x/ 
+    - derive/b/v/ 
+    - derive/m/n/ 
+
+translator:
+  dictionary: wubi86_double_key
+  enable_charset_filter: true
+  enable_encoder: true
+
+reverse_lookup:
+  dictionary: pinyin_simp
+  prefix: "z"
+  tips: 〔拼音〕
+  preedit_format:
+    - xform/([nljqxy])v/$1ü/
+    - xform/([nl])ue/$1üe/
+    - xform/([jqxy])v/$1u/
+
+punctuator:
+  import_preset: default
+
+key_binder:
+  import_preset: default
+
+recognizer:
+  import_preset: default
+  patterns:
+    reverse_lookup: "^z[a-z]*$"
